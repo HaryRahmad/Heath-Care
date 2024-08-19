@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('_css') %>
+</head>
+
+<body>
+    <%- include('_navbarUser') %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Keluhan</th>
+                    <th scope="col">Dokter</th>
+                    <th scope="col">Jawaban Dokter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((el, idx)=>{%>
+                    <tr>
+                        <td><%= idx + 1 %></td>
+                        <td><%= el.asking %></td>
+                        <td><%= el.Doctor.name %></td>
+                        <% if (el.suggestion === null) {%>
+                            <td>Belum di jawab, Tunggu ya</td>
+                        <%}else{%>
+                            <td><%= el.suggestion  %></td>
+                        <%} %>
+                    </tr>
+                    <%}) %>
+            </tbody>
+        </table>
+
+        <%- include('_body') %>
+</body>
+
+</html>

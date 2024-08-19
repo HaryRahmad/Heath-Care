@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("_css") %>
+</head>
+<body style="background-color: gray;"><br>
+    <div class="container">
+        <h1>Patient Register</h1>
+    </div><br>  
+    
+    <div class="container">
+        <a href="/"><button>Back</button></a>
+    </div><br>
+    <div class="container">
+        <% if (err) { %>
+         <p style="color: red;"><%= err %></p>
+        <% } %>
+    </div>
+    <div class="container mt-3">
+        <form action="/register/patient" method="post">
+
+            <div class="form-check">
+                <label for="name ">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Input Name">
+            </div>
+
+            <div class="form-check">
+                <label for="email">Email</label>
+                <input type="email" name="email" class= "form-control" placeholder="Input Email">
+            </div>
+
+            <div class="form-check">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="input Password">
+            </div><br>
+
+
+            <button type="submit" name="role" value="Patient">Register</button>
+        </form>
+    </div>
+    
+
+
+
+    <%- include("_body") %>
+</body>
+</html>

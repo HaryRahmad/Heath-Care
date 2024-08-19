@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("_css") %>
+</head>
+<body style="background-color: grey;">
+    <div class="container">
+        <h1>Doctor Register</h1>
+    </div>
+    <div class="container">
+        <a href="/register"><button>back</button></a>
+    </div>
+    <div class="container">
+        <% if (err) { %>
+         <p style="color: red;"><%= err %></p>
+        <% } %>
+    </div>
+    <div class="container mt-3">
+
+        <form action="/register/doctor" method="post">
+
+            <div class="form-check">
+                <label for="name ">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Input Name">
+            </div>
+
+            <div class="form-check">
+                <label for="email">Email</label>
+                <input type="email" name="email" class= "form-control" placeholder="Input Email">
+            </div>
+
+            <div class="form-check">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="input Password">
+            </div>
+
+            <div class="form-check">
+                <label for="inputState">Role</label>
+                <select id="inputState" class="form-control" name="role">
+                <option disabled selected>Choose...</option>
+                <% ["Gigi","THT","Kulit"].forEach(element => { %>
+                    <option value="<%= element %>"><%= element %></option>
+                <% }) %>
+                </select>
+            </div><br><br>
+
+            
+            <button type="submit">Register</button>
+        </form>
+
+    </div>
+    
+
+    <%- include("_body") %>
+</body>
+</html>

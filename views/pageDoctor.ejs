@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('_css') %>
+</head>
+
+<body>
+    <%- include('_navbarDoctor') %>
+    <% if (data.AskSuggestions === undefined) {%>
+        <h3 style="text-align: center;">Lagi gaada yang nanya bang hehe</h3>
+        <%}else{%>
+        <div style="margin: 20px 120px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">no</th>
+                        <th scope="col">Nama Pasien</th>
+                        <th scope="col">Keluhan</th>
+                        <th scope="col">Saran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                            <% data.AskSuggestions.forEach((el, idx)=>{%>
+                                <tr>
+                                    <td>
+                                        <%= idx + 1 %>
+                                    </td>
+                                    <td>
+                                        <%= el.User.name %>
+                                    </td>
+                                    <td>
+                                        <%= el.asking %>
+                                    </td>
+                                    <td>
+                                        <form action="/doctor" method="post">
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" name="suggestion">
+                                                    <button type="submit" class="btn btn-primary"   name="id" value="<%= el.id %>">Submit</button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                    <%}) %>
+                            <%} %>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <%- include('_body') %>
+</body>
+
+</html>

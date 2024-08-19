@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('_css') %>
+</head>
+
+<body>
+    <%- include('_navbarDoctor') %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">no</th>
+                    <th scope="col">image</th>
+                    <th scope="col">title</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((el, idx)=>{%>
+                    <tr>
+                        <td><%= idx +1 %></td>
+                        <td><img src="<%= el.img %>" class="img-thumbnail" alt="..."></td>
+                        <td>
+                            <%= el.title %>
+                        </td>
+                        <td><%= el.description %></td>
+                        <td>
+                            <a class="btn btn-primary" href="/doctor/article/edit/<%=el.id%>" role="button">Edit</a>
+                            <a class="btn btn-danger" href="/doctor/article/delete/<%=el.id%>" role="button">Delete</a>
+                        </td>
+                    </tr>
+                    <%}) %>
+            </tbody>
+        </table>
+
+        <%- include('_body') %>
+</body>
+
+</html>

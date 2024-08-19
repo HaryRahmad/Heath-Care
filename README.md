@@ -1,1 +1,1 @@
-# Heath-Care
+Sebuah Project kecil yang membantu user untuk mengirimkan keluhan tentang penyakit mereka, setelah itu dokter-dokter dapat mengirimkan apa yang harus dilakukan untuk mencegah/menghilangi penyakit tersebut

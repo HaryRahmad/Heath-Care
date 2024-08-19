@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('_css') %>
+</head>
+
+<body>
+    <%- include('_navbarDoctor') %>
+        <div style="margin: 50px 250px;">
+            <h2 style="text-align: center; margin-top: 20px;font-size: 50px;">Profile</h2>
+            <form method="post" action="/doctor/profileEdit">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="name" value="<%= data[0].name %>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="age" value="<%= data[0].ProfileDoctors[0].age %>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize:none"
+                        name="description"><%= data[0].ProfileDoctors[0].description %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Image Link</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="profilePicture" value="<%= data[0].ProfileDoctors[0].profilePicture %>">
+                </div>
+
+                <div class="mb-3"> 
+                <label for="img">Image</label>
+                <input type="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <%- include('_body') %>
+</body>
+
+</html>
